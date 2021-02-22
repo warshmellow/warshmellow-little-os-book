@@ -6,12 +6,12 @@ CHECKSUM      equ -MAGIC_NUMBER   ; calculate the checksum
                                   ; magic num + checksum + flags should be 0
 
 section .text:                    ; start of the text
-align 4
-    dd MAGIC_NUMBER
-    dd FLAGS
-    dd CHECKSUM
+align 4                           ; the code must be 4 byte aligned    
+    dd MAGIC_NUMBER               ; write the magic number
+    dd FLAGS                      ; the flags
+    dd CHECKSUM                   ; then the checksum
 
-loader:
-    mov eax, 0xCAFECAFE
+loader:                           ; entry to linker script
+    mov eax, 0xCAFECAFE           ; place number 0xCAFECAFE in the register EAX
 .loop:
-    jmp .loop
+    jmp .loop                     ; loop forever
