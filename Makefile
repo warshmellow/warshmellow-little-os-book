@@ -9,7 +9,7 @@ ASFLAGS = -f elf
 all: kernel.elf
 
 kernel.elf: $(OBJECTS)
-	i386-elf-ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
+	x86_64-elf-ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
 
 os.iso: kernel.elf
 	cp kernel.elf iso/boot/kernel.elf
