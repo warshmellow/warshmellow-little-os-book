@@ -22,6 +22,6 @@ align 4                           ; the code must be 4 byte aligned
 loader:                           ; entry to linker script
     mov eax, 0xCAFECAFE           ; place number 0xCAFECAFE in the register EAX
     mov esp, kernel_stack + KERNEL_STACK_SIZE
-
+    call kmain
 .loop:
     jmp .loop                     ; loop forever
